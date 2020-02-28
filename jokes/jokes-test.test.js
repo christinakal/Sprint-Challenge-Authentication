@@ -23,12 +23,12 @@ describe("server", function() {
       beforeEach(async () => {
         await db("users").truncate;
       });
-      //   it("should return status 200", async () => {
-      //     let res = await request(server)
-      //       .post("/api/auth/register")
-      //       .send({ username: "bob", password: "tomato" });
-      //     expect(res.status).toBe(201);
-      //   });
+      it("should return status 200", async () => {
+        let res = await request(server)
+          .post("/api/auth/register")
+          .send({ username: "bob", password: "tomato" });
+        expect(res.status).toBe(201);
+      });
       it("should return a token", async () => {
         res = await request(server)
           .post("/api/auth/login")
