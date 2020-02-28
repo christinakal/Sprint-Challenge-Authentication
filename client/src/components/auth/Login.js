@@ -13,8 +13,8 @@ const Login = props => {
     axios
       .post("http://localhost:3300/api/auth/login", userState)
       .then(response => {
-        window.localStorage.setItem("token", response.data.payload);
-        // props.history.push("/friends");
+        window.localStorage.setItem("token", response.data.token);
+        props.history.push("/jokes");
       })
       .catch(err => console.log(err));
   };
@@ -26,6 +26,7 @@ const Login = props => {
   return (
     <div className="form-wrapper">
       <form onSubmit={handleSubmit}>
+        <h2>Login</h2>
         <input
           type="text"
           name="username"

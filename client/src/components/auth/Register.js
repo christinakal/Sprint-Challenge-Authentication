@@ -3,7 +3,7 @@ import axios from "axios";
 import "./login.css";
 
 const Register = props => {
-  const [userState, setUserState] = useState({
+  const [user, setUser] = useState({
     username: "",
     password: ""
   });
@@ -11,33 +11,40 @@ const Register = props => {
   const handleSubmit = e => {
     e.preventDefault();
     axios
-      .post("http://localhost:3300/api/auth/register", userState)
-      .then(response => {
-        window.localStorage.setItem("token", response.data.payload);
-        // props.history.push("/friends");
+      .post("http://localhost:3300/api/auth/register", {
+        username: user.username,
+        password: user.password
       })
-      .catch(err => console.log(err));
+      .then(function(response) {
+        console.log(response);
+        localStorage.setItem("user", response);
+        props.history.push("/login");
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
   };
 
   const handleChanges = e => {
-    setUserState({ ...userState, [e.target.name]: e.target.value });
+    setUser({ ...user, [e.target.name]: e.target.value });
   };
 
   return (
     <div className="form-wrapper">
       <form onSubmit={handleSubmit}>
+        <h2>Register</h2>
         <input
           type="text"
           name="username"
           placeholder="username"
-          value={userState.username}
+          value={user.username}
           onChange={handleChanges}
         />
         <input
           type="password"
           name="password"
           placeholder="password"
-          value={userState.password}
+          value={user.password}
           onChange={handleChanges}
         />
         <button type="submit">Log In</button>
