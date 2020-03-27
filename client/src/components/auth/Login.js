@@ -24,7 +24,10 @@ const Login = props => {
   };
 
   return (
-    <div className="form-wrapper">
+    <div className="main-container">
+      <div className="img-container">
+        <img src={require("../../img/undraw_img.svg")} />
+      </div>
       <form onSubmit={handleSubmit}>
         <h2>Login</h2>
         <input

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axiosWithAuth from "./auth/axiosWithAuth";
 import JokesCard from "./Jokes-cards";
+import "./jokes.css";
 
 const Jokes = () => {
   const [data, setData] = useState([]);
