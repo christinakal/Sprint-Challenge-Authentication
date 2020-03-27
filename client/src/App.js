@@ -6,10 +6,12 @@ import PrivateRoute from "./components/auth/PrivateRoute";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Jokes from "./components/Jokes";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <div className="App">
+      <Navbar />
       <Route exact path="/" component={Register} />
       <Route exact path="/login" component={Login} />
       <PrivateRoute path="/jokes" component={Jokes} />
