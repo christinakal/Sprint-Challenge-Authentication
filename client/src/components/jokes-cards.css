@@ -1,0 +1,35 @@
+.jokes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 100%;
+  padding: 1.2%;
+}
+
+.jokes-container {
+  width: 50%;
+}
+
+.joke {
+  border: 1px solid #efefef;
+  border-radius: 4px;
+  margin-bottom: 48px;
+  background-color: #fdfdfd;
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 3%;
+  padding: 5%;
+  font-size: 1.3rem;
+  color: #575a89;
+}
+
+@media only screen and (max-width: 600px) {
+  .jokes {
+    flex-direction: column;
+  }
+
+  .jokes-container {
+    width: 100%;
+  }
+}
