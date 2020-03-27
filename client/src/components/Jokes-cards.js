@@ -4,7 +4,7 @@ import "./jokes-cards.css";
 const JokesCard = props => {
   return (
     <div className="jokes-container">
-      <div className="jokes">{props.joke}</div>
+      <div className="joke">{props.joke}</div>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import "./login.css";
 
 const Register = props => {
@@ -30,7 +31,10 @@ const Register = props => {
   };
 
   return (
-    <div className="form-wrapper">
+    <div className="main-container">
+      <div className="img-container">
+        <img src={require("../../img/undraw_img.svg")} />
+      </div>
       <form onSubmit={handleSubmit}>
         <h2>Register</h2>
         <input
@@ -47,6 +51,9 @@ const Register = props => {
           value={user.password}
           onChange={handleChanges}
         />
+        <p>
+          Already a member? <Link to="/login">Log In</Link>
+        </p>
         <button type="submit">Log In</button>
       </form>
     </div>

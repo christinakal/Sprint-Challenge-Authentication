@@ -15,6 +15,7 @@ const Login = props => {
       .then(response => {
         window.localStorage.setItem("token", response.data.token);
         props.history.push("/jokes");
+        props.setIsLoading(true);
       })
       .catch(err => console.log(err));
   };

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axiosWithAuth from "./auth/axiosWithAuth";
 import JokesCard from "./Jokes-cards";
-import "./jokes.css";
 
 const Jokes = () => {
   const [data, setData] = useState([]);
+
   useEffect(() => {
     axiosWithAuth()
       .get("/")
@@ -14,8 +14,9 @@ const Jokes = () => {
         console.log(data);
       });
   }, data);
+
   return (
-    <div>
+    <div className="jokes">
       {data.map(element => (
         <JokesCard id={element.id} joke={element.joke} />
       ))}
